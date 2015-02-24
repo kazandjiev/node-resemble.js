@@ -453,6 +453,12 @@ var _this = {};
 			loadImageData(two, onceWeHaveBoth);
 		}
 
+		function setTolerance(threshold){
+			for(var key in threshold){
+				tolerance[key] = (+threshold[key] >= 0 && +threshold[key] <= 255) ? threshold[key] : tolerance[key];
+			}
+		}
+
 		function getCompareApi(param){
 
 			var secondFileData,
@@ -463,15 +469,12 @@ var _this = {};
 				secondFileData = param;
 			}
 
-			var self = {
-				ignoreNothing: function(){
+			
 
-					tolerance.red = 16;
-					tolerance.green = 16;
-					tolerance.blue = 16;
-					tolerance.alpha = 16;
-					tolerance.minBrightness = 16;
-					tolerance.maxBrightness = 240;
+			var self = {
+				ignoreNothing: function(threshold){
+					
+					setTolerance(threshold);
 
 					ignoreAntialiasing = false;
 					ignoreColors = false;
