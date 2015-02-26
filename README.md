@@ -1,8 +1,8 @@
-node-resebmle.js
+resemblejs-tolerance
 ================
 
 Analyse and compare images with Javascript. This project does not need canvas or any other binary denpendencies.
-It is a modification of [Resemble.js](https://github.com/Huddle/Resemble.js)
+It is a modification of [node-resemble-js](https://github.com/lksv/node-resemble.js)
 
 
 ### Get it
@@ -46,9 +46,18 @@ var diff = resemble(file).compareTo(file2).ignoreColors().onComplete(function(da
 You can also change the comparison method after the first analysis.
 
 ```javascript
-// diff.ignoreNothing();
+	var tolerance = { // between 0 and 255
+		red: 16,
+		green: 16,
+		blue: 16,
+		alpha: 16,
+		minBrightness: 16,
+		maxBrightness: 240
+	};
+// diff.setTolerance(tolerance);
 // diff.ignoreColors();
-diff.ignoreAntialiasing();
+// diff.ignoreAntialiasing();
+
 ```
 
 And change the output display style.
@@ -71,3 +80,4 @@ resemble.outputSettings({
 Credits:
  * Created by [James Cryer](http://github.com/jamescryer) and the Huddle development team.
  * [Lukas Svoboda](http://github.com/lksv) - modification for node.js
+ * [Ivan Kazandzhiev](http://github.com/kazandjiev) - exposing tolerance for public modification

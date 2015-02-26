@@ -453,11 +453,6 @@ var _this = {};
 			loadImageData(two, onceWeHaveBoth);
 		}
 
-		function setTolerance(threshold){
-			for(var key in threshold){
-				tolerance[key] = (+threshold[key] >= 0 && +threshold[key] <= 255) ? threshold[key] : tolerance[key];
-			}
-		}
 
 		function getCompareApi(param){
 
@@ -468,13 +463,13 @@ var _this = {};
 				// assume it's file data
 				secondFileData = param;
 			}
-
 			
-
 			var self = {
-				ignoreNothing: function(threshold){
-					
-					setTolerance(threshold);
+				
+				setTolerance: function(threshold){
+					for(var key in threshold){
+						tolerance[key] = (+threshold[key] >= 0 && +threshold[key] <= 255) ? threshold[key] : tolerance[key];
+					}
 
 					ignoreAntialiasing = false;
 					ignoreColors = false;
