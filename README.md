@@ -7,7 +7,7 @@ It is a modification of [node-resemble-js](https://github.com/lksv/node-resemble
 
 ### Get it
 
-`npm install node-resemble-js`
+`npm install resemblejs-tolerance`
 
 ### Example
 
